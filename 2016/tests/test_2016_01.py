@@ -7,3 +7,4 @@ def test_directions():
     assert get_new_direction(position, "R").direction == Direction.EAST
 
 
+
