@@ -1,6 +1,6 @@
 # AoC Template
 
-YEAR = 2019
+YEAR = 2016
 DAY = 1
 
 
