@@ -6,29 +6,27 @@ YEAR = 2016
 DAY = 3
 
 
+def is_valid_triangle(triangle: List[int]) -> bool:
+    triangle = sorted(triangle)
+    return triangle[0] + triangle[1] > triangle[2]
+
+
 def main():
     data = open(f"../input_data/input_{YEAR}_{DAY:02d}.txt", "r").readlines()
-    data = [list(map(int, row.split())) for row in data]
-    counter = 0
-    for triangle in data:
-        if is_valid_triangle(triangle):
-            counter += 1
-    print(counter, "is answer to part 1")
-
-    counter = 0
-    print(len(data) % 3)
-    for index in range(len(data)):
+    triangles = [list(map(int, row.split())) for row in data]
+    counter_part1, counter_part2 = 0, 0
+    for index in range(len(triangles)):
+        if is_valid_triangle(triangles[index]):
+            counter_part1 += 1
         if index % 3 != 0:
             continue
         for i in range(3):
-            counter += 1 * is_valid_triangle([data[index][i], data[index+1][i], data[index+2][i]])
+            counter_part2 += 1 * is_valid_triangle(
+                [triangles[index][i], triangles[index + 1][i], triangles[index + 2][i]]
+            )
 
-    print(counter, "is the answer to part 2")
-
-    
-def is_valid_triangle(triangle: List[int])->bool:
-    triangle = sorted(triangle)
-    return triangle[0] + triangle[1] > triangle[2]
+    print(counter_part1, "is the answer to part 1")
+    print(counter_part2, "is the answer to part 2")
 
 
 if __name__ == "__main__":
