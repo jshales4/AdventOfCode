@@ -1,4 +1,4 @@
-from aoc_2016_02 import parse_position_on_keypad, determine_numpad_position
+from aoc_2016_02 import parse_position_on_keypad, parse_instruction
 
 def test_parse_keypad():
    assert parse_position_on_keypad(11) == 5
@@ -11,16 +11,16 @@ def test_parse_keypad():
 
 def test_determine_numpad_position():
     # cases where they moved
-    assert determine_numpad_position(11, "L") == 10
-    assert determine_numpad_position(11, "R") == 12
-    assert determine_numpad_position(11, "D") == 21
-    assert determine_numpad_position(11, "U") == 1
+    assert parse_instruction(11, "L") == 10
+    assert parse_instruction(11, "R") == 12
+    assert parse_instruction(11, "D") == 21
+    assert parse_instruction(11, "U") == 1
 
     # cases where on edge
-    assert determine_numpad_position(0, "L") == 0
-    assert determine_numpad_position(12, "R") == 12
-    assert determine_numpad_position(21, "D") == 21
-    assert determine_numpad_position(1, "U") == 1
+    assert parse_instruction(0, "L") == 0
+    assert parse_instruction(12, "R") == 12
+    assert parse_instruction(21, "D") == 21
+    assert parse_instruction(1, "U") == 1
 
 
 

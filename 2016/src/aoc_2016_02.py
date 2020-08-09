@@ -12,7 +12,9 @@ def parse_position_on_keypad(position: int, keypad: List[List[Union[str, int]]])
 
 
 def move_if_possible(
-    current_position: int, delta: int, acceptable_keypad_positions
+    current_position: int,
+    delta: int,
+    acceptable_keypad_positions: List[Union[str, int]],
 ) -> int:
     if current_position + delta in acceptable_keypad_positions:
         return current_position + delta
@@ -20,8 +22,8 @@ def move_if_possible(
         return current_position
 
 
-def determine_numpad_position(
-    current_position, instruction, acceptable_positions
+def parse_instruction(
+    current_position: int, instruction: str, acceptable_positions: List[Union[str, int]]
 ) -> int:
     if instruction == "L":
         delta = -1
@@ -43,7 +45,7 @@ def main():
     for line in data:
         line = line.rstrip()
         for instruction in line:
-            current_position = determine_numpad_position(
+            current_position = parse_instruction(
                 current_position, instruction, [0, 1, 2, 10, 11, 12, 20, 21, 22]
             )
 
@@ -57,7 +59,7 @@ def main():
     for line in data:
         line = line.rstrip()
         for instruction in line:
-            current_position = determine_numpad_position(
+            current_position = parse_instruction(
                 current_position,
                 instruction,
                 [2, 11, 12, 13, 20, 21, 22, 23, 24, 31, 32, 33, 42],
