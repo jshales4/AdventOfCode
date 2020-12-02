@@ -1,0 +1,6 @@
+src/aoc_2020_dd.py
+.DS_Store
+.idea/
+__pycache__/
+input_data/
+.mypy_cache/
