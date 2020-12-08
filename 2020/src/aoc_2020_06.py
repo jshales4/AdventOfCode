@@ -12,7 +12,9 @@ def add_passenger_to_group_set_any(passenger: str, group_set: typing.Set) -> typ
     return group_set | set(passenger.rstrip())
 
 
-def add_passenger_to_group_set_all(passenger: str, is_new_group: bool, group_set: typing.Set) -> typing.Set:
+def add_passenger_to_group_set_all(
+    passenger: str, is_new_group: bool, group_set: typing.Set
+) -> typing.Set:
     passenger_set: typing.Set[str] = set(passenger.rstrip())
 
     if is_new_group:
@@ -38,7 +40,9 @@ def main():
             is_new_group = True
         else:
             any_answer_set = add_passenger_to_group_set_any(row, any_answer_set)
-            all_answer_set = add_passenger_to_group_set_all(row, is_new_group, all_answer_set)
+            all_answer_set = add_passenger_to_group_set_all(
+                row, is_new_group, all_answer_set
+            )
             is_new_group = False
     if len(any_answer_set) != 0:
         total_yes_answers_any += len(any_answer_set)
@@ -47,7 +51,6 @@ def main():
 
     print(total_yes_answers_any, "is the answer to part 1.")
     print(total_yes_answers_all, "is the answer to part 2.")
-
 
 
 if __name__ == "__main__":

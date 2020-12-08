@@ -5,10 +5,7 @@ DAY = 2
 def is_valid_password_part1(rule: str, password: str):
     count_rule, character = rule.split(" ")
     count_min, count_max = [int(i) for i in count_rule.split("-")]
-    if count_min <= password.count(character) <= count_max:
-        return True
-    else:
-        return False
+    return count_min <= password.count(character) <= count_max
 
 
 def is_valid_password_part2(rule: str, password: str):
