@@ -17,7 +17,7 @@ def test_count_seats():
     ]
     initial_seats = [list(i) for i in initial_rows]
 
-    seats = find_final_seat_state(initial_seats)
+    seats = find_final_seat_state(initial_seats, part2_mode=False)
     render_seats(seats)
     assert count_occupied_seats(seats) == 37
 
@@ -38,6 +38,6 @@ def test_count_seats_pt2():
     ]
     initial_seats = [list(i) for i in initial_rows]
 
-    seats = find_final_seat_state(initial_seats)
+    seats = find_final_seat_state(initial_seats, part2_mode=True)
     render_seats(seats)
     assert count_occupied_seats(seats) == 26
